@@ -29,7 +29,7 @@ def follow(thefile):
       print(date.strftime('%Y-%b-%d_%I-%M-%S(%p)'))
       
       log_file_name = '{}/{}/IDL.log.{}'.format(date.year,date.strftime("%b"),date.strftime('%Y-%b-%d_%I-%M-%S(%p)'))
-      os.makedirs(os.path.dirname(log_file_name), exist_ok=False)
+      os.makedirs(os.path.dirname(log_file_name), exist_ok=True)
       with open(log_file_name, mode='wt', encoding='utf-8') as myfile:
         myfile.write('\n'.join(lines_array))
       break
