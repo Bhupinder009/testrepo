@@ -1,10 +1,8 @@
 import time,re,os
 from datetime import datetime
- 
 
 regexp = re.compile(r'[\D{3}\s\d{2},\s\d{4}\s\d:\d:\d\s\w]')
 date_format = "%Y-%m-%d"
- 
 
 def get_log_date(log_line):
     match = re.search(r'\D{3}\s\d{2},\s\d{4}',log_line)
@@ -39,8 +37,6 @@ def follow(thefile):
       lines_array.append(line)
       continue
 
- 
-
     if line_counter == "" :
       line_counter=get_log_date(line)
       lines_array.append(line)
@@ -61,8 +57,9 @@ def follow(thefile):
       lines_array = []
       line_counter = None
       line_counter=get_log_date(line)
-      lines_array.append(line) 
-
+      lines_array.append(line)
+    
 
 logfile = open("log")
 follow(logfile)
+
